@@ -15,7 +15,7 @@ function App() {
    <Logo name="bnb" abr="bnb" width="40px" />
    
   
-        <Price />
+        <Price crypto="BNB"/>
         </>
   );
      
