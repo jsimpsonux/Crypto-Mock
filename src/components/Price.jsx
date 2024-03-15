@@ -16,7 +16,7 @@ function Price(props) {
   const { data, error, isLoading } = useSWR(
     `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${props.crypto}&tsyms=GBP`,
     fetcher,
-    { refreshInterval: 1000 }
+    { refreshInterval: 100000 }
   );
 
   if (error) return <div>failed to load</div>;

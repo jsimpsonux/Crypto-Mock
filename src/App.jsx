@@ -8,14 +8,7 @@ function App() {
   
   return (
    <>
-   <Logo name="bitcoin" abr="btc" width="40px" />
-   <Logo name="bnb" abr="bnb" width="40px" />
-   <Logo name="cardano" abr="ada" width="40px" />
-   <Logo name="solana" abr="sol" width="40px" />
-   <Logo name="bnb" abr="bnb" width="40px" />
    
-  
-        <Price crypto="BTC"/>
         </>
   );
      
