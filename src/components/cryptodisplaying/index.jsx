@@ -23,13 +23,13 @@ function Cryptodisplay() {
 }
 
 
-{crypto.map((crypto) => (
-  <Cryptodisplay
-  name={crypto.name}
-  info={crypto.info}
-  change={crypto.change}
-  />
-))};
+// {crypto.map((crypto) => (
+//   <Cryptodisplay
+//   name={crypto.name}
+//   info={crypto.info}
+//   change={crypto.change}
+//   />
+// ))};
   
 
 export default Cryptodisplay;
