@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Bitcoin",
+    "abbreviation": "BTC"
+  },
+  {
+    "name": "Ethereum",
+    "abbreviation": "ETH"
+  },
+  {
+    "name": "Binance",
+    "abbreviation": "BNB"
+  },
+  {
+    "name": "Cardano",
+    "abbreviation": "ADA"
+  },
+  {
+    "name": "Solana",
+    "abbreviation": "SOL"
+  },
+  {
+    "name": "XRP",
+    "abbreviation": "XRP"
+  },
+  {
+    "name": "Polkadot",
+    "abbreviation": "DOT"
+  },
+  {
+    "name": "Dogecoin",
+    "abbreviation": "DOGE"
+  },
+  {
+    "name": "Avalanche",
+    "abbreviation": "AVAX"
+  }
+]

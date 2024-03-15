@@ -163,9 +163,9 @@ export default function Navbar() {
         </List>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <div>
+        {/* <div>
           <img src="/MainPage.jpg" className="Wallpaper"></img>
-        </div>
+        </div> */}
       </Box>
     </Box>
   );
