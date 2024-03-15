@@ -5,7 +5,7 @@ function Logo(props) {
     <div>
       <img
         className="coin-logo d-inline"
-        src={`https://cryptologos.cc/logos/${props.name}-${props.abr}-logo.svg?v=029`}
+        src={`https://cryptologos.cc/logos/${props.name.toLowerCase()}-${props.abr.toLowerCase()}-logo.svg?v=029`}
         width={props.width}
         loading="lazy"
         alt={`${props.abr.toUpperCase()} logo`}
