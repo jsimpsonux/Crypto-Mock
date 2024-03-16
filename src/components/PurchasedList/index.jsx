@@ -14,9 +14,10 @@ function PurchasedList() {
     <ul>
       {puchasedCoins.map((item) => (
         <PurchasedItem
+        key={item.id}
           id={item.id}
           coin={item.coin}
-          img={item.img}
+          // img={item.img}
           cost={item.cost}
         />
       ))}

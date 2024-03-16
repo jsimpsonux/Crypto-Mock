@@ -1,35 +1,47 @@
 import React from "react";
-import Box from '@mui/system/Box';
-import Stack from "@mui/system/Stack";
-import { styled } from '@mui/system';
+import Chip from "@mui/material/Chip";
+import Box from "@mui/system/Box";
+import { Grid } from "@mui/material";
+import Stack from "@mui/material/Stack";
+import { Typography } from "@mui/material";
+import { styled } from "@mui/material/styles";
+import { Paper } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
 
-const Item = styled('div')(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#262B32' : '#fff',
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+  ...theme.typography.body2,
   padding: theme.spacing(1),
-  textAlign: 'center',
-  borderRadius: 4,
+  textAlign: "center",
+  color: theme.palette.text.secondary,
+  flexGrow: 1,
 }));
 
 function PurchasedItem(props) {
+  const handleDelete = () => {
+    console.info("You clicked the delete icon.");
+  };
   return (
-    <div>
-    <Stack direction="row"
-        divider={
-          <Box
-            component="hr"
-            sx={{
-              border: (theme) =>
-                `1px solid ${theme.palette.mode === 'dark' ? '#262B32' : '#fff'}`,
-            }}
+    <Box sx={{ width: 400 }} padding={1}>
+      <Stack
+        direction={{ xs: "column", sm: "row" }}
+        spacing={{ xs: 1, sm: 2, md: 4 }}
+      >
+        <Item>
+          {props.coin} {props.cost} {props.img}{" "}
+          <Chip
+            label="Delete icon"
+            // onClick={handleClick}
+            onDelete={handleDelete}
+            deleteIcon={<DeleteIcon />}
+            variant="outlined"
           />
-        }
-        spacing={2}>
-      <Item>{props.coin}</Item>
-      <Item>{props.img}</Item>
-      <Item>{props.cost}</Item>
-    </Stack>
-    </div>
+        </Item>
+      </Stack>
+    </Box>
   );
+
+  
 }
 
 export default PurchasedItem;
