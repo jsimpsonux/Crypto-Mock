@@ -10,33 +10,33 @@ const initialState = {
   ],
 };
 
-//WalletPageReducer, this reducer function is in charge of creating new state obj based on actions it receives,
+//AppReducer, this reducer function is in charge of creating new state obj based on actions it receives,
 //It takes in 2 args: the current global "state" (passed in by React) and "action" which passed in by dispatch
-const WalletPageReducer = (state, action) => {
+const AppReducer = (state, action) => {
   switch (action.type) {
     default:
       return state;
   }
 };
 //create context is used to get the state and export it
-export const WalletPageContext = createContext('');
+export const AppContext = createContext('');
 
 //To help you separate the concerns (rendering and state management) we need to use the hook useReducer()
 
 //Create provider function to set context, that wraps the  components to pass certains states to
-//WalletPageProvider holds the state and passes it to our components
+//AppProvider holds the state and passes it to our components
 
-export const WalletPageProvider = (props) => {
+export const AppProvider = (props) => {
   // we need useReducer hook to hold states and track them. It accepts 2 arguments: the reducer function and the initial state
-  const [state, dispatch] = useReducer(WalletPageReducer, initialState);
+  const [state, dispatch] = useReducer(AppReducer, initialState);
 
   // useReducer returns an array with exactly two items:
   // The current state of this state variable, initially set to the initial state you provided.
   // The dispatch function that lets you update the state to a different value and trigger a re-render.
 
   return (
-    <WalletPageContext.Provider
-      value ={{
+    <AppContext.Provider
+      values={{
         funds: state.funds,
         investments: state.investments,
         dispatch,
@@ -44,6 +44,6 @@ export const WalletPageProvider = (props) => {
     >
       {" "}
       {props.children}
-    </WalletPageContext.Provider>
+    </AppContext.Provider>
   );
 };

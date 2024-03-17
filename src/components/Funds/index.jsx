@@ -1,10 +1,12 @@
 import React, { useEffect } from "react"
+import { WalletPageContext } from "../WalletPageContext"
 
 function Funds() {
+  const { funds } = useContext(WalletPageContext);
   return (
     <div>
       <h3>Funds</h3>
-      <p>6500£</p>
+      <p>{funds}</p>
     </div>
   )
 }

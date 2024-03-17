@@ -48,8 +48,8 @@ const WalletPage = () => {
           </Box>
         </Box>
 
-        <Typography variant="h4" component="h2" marginTop={5} marginBottom={3}>
-          Purchase History
+        <Typography variant="h5" marginTop={5} marginBottom={3}>
+           History
         </Typography>
         <Box>
           <Box>
