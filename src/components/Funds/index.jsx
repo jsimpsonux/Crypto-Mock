@@ -3,7 +3,8 @@ import React, { useEffect } from "react"
 function Funds() {
   return (
     <div>
-      <h1>Money here</h1>
+      <h3>Funds</h3>
+      <p>6500£</p>
     </div>
   )
 }

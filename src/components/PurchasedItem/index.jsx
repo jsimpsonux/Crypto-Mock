@@ -28,9 +28,9 @@ function PurchasedItem(props) {
         spacing={{ xs: 1, sm: 2, md: 4 }}
       >
         <Item>
-          {props.coin} {props.cost} {props.img}{" "}
+        {props.img} {props.coin} {props.cost}{" "}
           <Chip
-            label="Delete icon"
+            label="Delete coin"
             // onClick={handleClick}
             onDelete={handleDelete}
             deleteIcon={<DeleteIcon />}

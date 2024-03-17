@@ -11,7 +11,8 @@ import { Typography } from "@mui/material";
 
 import PurchaseList from "../PurchasedList";
 import Remaining from "../Remaining";
-import ExpenceTotal from "../ExpenseTotal";
+import TotalInvested from "../TotalInvested";
+import { WalletPageProvider } from "../WalletPageContext";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -23,38 +24,40 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const WalletPage = () => {
   return (
-    <Container maxWidth="sm">
-      <Typography variant="h4" component="h2" marginTop={5} marginBottom={3}>
-        My Wallet
-      </Typography>
+    <WalletPageProvider>
+      <Container maxWidth="sm">
+        <Typography variant="h4" component="h2" marginTop={5} marginBottom={3}>
+          My Wallet
+        </Typography>
 
-      <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={2}>
-        <Box gridColumn="span 12">
-          <Item>
-            <Funds />
-          </Item>
+        <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={2}>
+          <Box gridColumn="span 12">
+            <Item>
+              <Funds />
+            </Item>
+          </Box>
+          <Box gridColumn="span 6">
+            <Item>
+              <Remaining />
+            </Item>
+          </Box>
+          <Box gridColumn="span 6">
+            <Item>
+              <TotalInvested />
+            </Item>
+          </Box>
         </Box>
-        <Box gridColumn="span 12">
-          <Item>
-            <Remaining />
-          </Item>
-        </Box>
-        <Box gridColumn="span 12">
-          <Item>
-            <ExpenceTotal />
-          </Item>
-        </Box>
-      </Box>
 
-      <Typography variant="h4" component="h2" marginTop={5} marginBottom={3}>
-        Purchase History
-      </Typography>
-      <Box>
+        <Typography variant="h4" component="h2" marginTop={5} marginBottom={3}>
+          Purchase History
+        </Typography>
         <Box>
-          <PurchaseList />
+          <Box>
+            <PurchaseList />
+          </Box>
         </Box>
-      </Box>
-    </Container>
+      </Container>
+    </WalletPageProvider>
   );
 };
 

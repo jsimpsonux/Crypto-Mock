@@ -15,9 +15,9 @@ function PurchasedList() {
       {puchasedCoins.map((item) => (
         <PurchasedItem
         key={item.id}
+        img={item.img}
           id={item.id}
           coin={item.coin}
-          // img={item.img}
           cost={item.cost}
         />
       ))}
