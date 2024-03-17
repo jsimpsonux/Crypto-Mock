@@ -4,9 +4,9 @@ import { createContext, useReducer } from "react";
 const initialState = {
   funds: 2000,
   investments: [
-    { id: 79797, coin: "Bitcoin", img: "🍎", cost: 56 },
-    { id: 23357, coin: "Ethereum", img: "🥝", cost: 36 },
-    { id: 65497, coin: "Solana", img: "🌸", cost: 67 },
+    { id: 79797, coin: "Bitcoin", img: "🍎", cost: 500 },
+    { id: 23357, coin: "Ethereum", img: "🥝", cost: 300 },
+    { id: 65497, coin: "Solana", img: "🌸", cost: 700 },
   ],
 };
 
@@ -14,12 +14,19 @@ const initialState = {
 //It takes in 2 args: the current global "state" (passed in by React) and "action" which passed in by dispatch
 const WalletPageReducer = (state, action) => {
   switch (action.type) {
+    case "DELETE_COIN":
+      return {
+        ...state,
+        investments: state.investments.filter(
+          (investment) => investment.id !== action.payload
+        ),
+      };
     default:
       return state;
   }
 };
 //create context is used to get the state and export it
-export const WalletPageContext = createContext('');
+export const WalletPageContext = createContext("");
 
 //To help you separate the concerns (rendering and state management) we need to use the hook useReducer()
 
@@ -36,7 +43,7 @@ export const WalletPageProvider = (props) => {
 
   return (
     <WalletPageContext.Provider
-      value ={{
+      value={{
         funds: state.funds,
         investments: state.investments,
         dispatch,

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import Chip from "@mui/material/Chip";
 import Box from "@mui/system/Box";
 import { Grid } from "@mui/material";
@@ -7,6 +7,7 @@ import { Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { Paper } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { WalletPageContext } from "../WalletPageContext";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -18,8 +19,14 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 function PurchasedItem(props) {
+
+  const {dispatch} =  useContext(WalletPageContext);
+
   const handleDelete = () => {
-    console.info("You clicked the delete icon.");
+    dispatch({
+      type: 'DELETE_COIN',
+      payload: props.id,
+    })
   };
   return (
     <Box sx={{ width: 400 }} padding={1}>
@@ -28,11 +35,10 @@ function PurchasedItem(props) {
         spacing={{ xs: 1, sm: 2, md: 4 }}
       >
         <Item>
-        {props.img} {props.coin} {props.cost}{" "}
+        {props.img} {props.coin} {props.cost}
           <Chip
             label="Delete coin"
-            // onClick={handleClick}
-            onDelete={handleDelete}
+            onClick={handleDelete}
             deleteIcon={<DeleteIcon />}
             variant="outlined"
           />
