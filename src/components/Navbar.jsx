@@ -9,8 +9,9 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+// import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+// import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -19,10 +20,46 @@ import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
 import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
+import { Link } from "react-router-dom";
 // import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Home from "../pages/Home";
+import Watchlist from "../pages/Watchlist";
+import Portfolio from "../pages/Portfolio";
+import Wallet from "../pages/Wallet";
+
+import logo from "../assets/logo.png";
 import "../index.css";
 
 const drawerWidth = 240;
+
+const pages = [
+  {
+    title: "Home",
+    href: "/",
+    icon: <HomeOutlinedIcon />,
+    component: Home,
+  },
+  {
+    title: "Watchlist",
+    href: "/Watchlist",
+    icon: <PeopleOutlinedIcon />,
+    component: Watchlist,
+  },
+  {
+    title: "Portfolio",
+    href: "/Portfolio",
+    icon: <ContactsOutlinedIcon />,
+    component: Portfolio,
+  },
+  {
+    title: "Wallet",
+    href: "/Wallet",
+    icon: <ReceiptOutlinedIcon />,
+    component: Wallet,
+  },
+];
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
@@ -90,8 +127,9 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 export default function Navbar() {
-  const theme = useTheme();
+  // const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [selecctedMenu, setSelectedMenu] = React.useState("/");
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -101,72 +139,85 @@ export default function Navbar() {
     setOpen(false);
   };
 
+  const routes = pages.map((page) => (
+    <Route key={page.title} path={page.href} element={<page.component />} />
+  ));
+
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{
-              marginRight: 5,
-              ...(open && { display: "none" }),
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            ₿ Crypto-Mock
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "rtl" ? (
-              <ChevronRightIcon />
-            ) : (
-              <ChevronLeftIcon />
-            )}
-          </IconButton>
-        </DrawerHeader>
-        {/* <Divider /> */}
-        <List>
-          {["Home", "Watchlist", "Portfolio", "Wallet"].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: "block" }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? "initial" : "center",
-                  px: 2.5,
-                }}
+      <BrowserRouter>
+        <AppBar position="fixed" open={open}>
+          <Toolbar>
+            <IconButton
+              color="red"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              sx={{
+                marginRight: 5,
+                ...(open && { display: "none" }),
+              }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Box component="img" sx={{ height: 60 }} alt="Logo" src={logo} />
+            <Typography variant="h4" noWrap component="div">
+              Crypto-Mock
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <Drawer variant="permanent" open={open}>
+          <DrawerHeader>
+            <IconButton onClick={handleDrawerClose}>
+              <MenuOpenIcon />
+            </IconButton>
+          </DrawerHeader>
+          {/* <Divider /> */}
+          <List>
+            {pages.map((page, index) => (
+              <ListItem
+                key={page.title}
+                disablePadding
+                sx={{ display: "block" }}
+                style={
+                  page.href === selecctedMenu ? { backgroundColor: "red" } : {}
+                }
+                onClick={() => setSelectedMenu(page.href)}
               >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : "auto",
-                    justifyContent: "center",
-                  }}
+                <Link
+                  to={page.href}
+                  style={{ textDecoration: "none", color: "inherit" }}
                 >
-                  {index === 0 && <HomeOutlinedIcon />}
-                  {index === 1 && <PeopleOutlinedIcon />}
-                  {index === 2 && <ContactsOutlinedIcon />}
-                  {index === 3 && <ReceiptOutlinedIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        {/* <div>
-          <img src="/MainPage.jpg" className="Wallpaper"></img>
-        </div> */}
-      </Box>
+                  <ListItemButton
+                    sx={{
+                      minHeight: 48,
+                      justifyContent: open ? "initial" : "center",
+                      px: 2.5,
+                    }}
+                  >
+                    <ListItemIcon
+                      sx={{
+                        minWidth: 0,
+                        mr: open ? 3 : "auto",
+                        justifyContent: "center",
+                      }}
+                    >
+                      {page.icon}
+                    </ListItemIcon>
+
+                    <ListItemText
+                      primary={page.title}
+                      sx={{ opacity: open ? 1 : 0 }}
+                    />
+                  </ListItemButton>
+                </Link>
+              </ListItem>
+            ))}
+          </List>
+        </Drawer>
+        <Routes>{routes}</Routes>
+      </BrowserRouter>
     </Box>
   );
 }
