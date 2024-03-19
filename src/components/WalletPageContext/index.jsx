@@ -2,7 +2,7 @@ import { createContext, useReducer } from "react";
 
 //set up an initial state which wallet page will use when page loads
 const initialState = {
-  funds: 2000,
+  funds: 6000,
   investments: [
     { id: 79797, coin: "Bitcoin", img: "🍎", cost: 500 },
     { id: 23357, coin: "Ethereum", img: "🥝", cost: 300 },

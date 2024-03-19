@@ -26,9 +26,9 @@ const WalletPage = () => {
   return (
     <WalletPageProvider>
       <Container maxWidth="sm">
-        <Typography variant="h4" component="h2" marginTop={5} marginBottom={3}>
-          My Wallet
-        </Typography>
+        {/* <Typography variant="h4" component="h2" marginTop={5} marginBottom={3}>
+          Wallet
+        </Typography> */}
 
         <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={2}>
           <Box gridColumn="span 12">
