@@ -7,7 +7,7 @@ import { Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { Paper } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { WalletPageContext } from "../WalletPageContext";
+
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -19,8 +19,6 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 function PurchasedItem(props) {
-
-  const {dispatch} =  useContext(WalletPageContext);
 
   const handleDelete = () => {
     dispatch({

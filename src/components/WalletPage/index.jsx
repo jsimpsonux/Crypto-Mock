@@ -14,6 +14,8 @@ import Remaining from "../Remaining";
 import TotalInvested from "../TotalInvested";
 import { WalletPageProvider } from "../WalletPageContext";
 
+import Price from '../Price';
+
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
@@ -54,6 +56,7 @@ const WalletPage = () => {
         <Box>
           <Box>
             <PurchaseList />
+            <Price />
           </Box>
         </Box>
       </Container>

@@ -17,13 +17,16 @@ function Price(props) {
     `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${props.crypto}&tsyms=GBP`,
     fetcher,
     { refreshInterval: 100000 }
+
   );
+  const coinPrice = data.DISPLAY[props.crypto].GBP.PRICE
+  console.log(coinPrice);
 
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
   return (
     <div>
-      Price: {data.DISPLAY[props.crypto].GBP.PRICE}
+      Price: {props.coinPrice}
       <span
         className={
           data.DISPLAY[props.crypto].GBP.CHANGEPCTDAY > 0
