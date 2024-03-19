@@ -13,10 +13,11 @@ function Price(props) {
       return response.json();
     });
 
+  // Implements useSWR  
   const { data, error, isLoading } = useSWR(
     `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${props.crypto}&tsyms=GBP`,
     fetcher,
-    { refreshInterval: 1000000 }
+    { refreshInterval: 10000000 }
   );
 
   return (
@@ -26,8 +27,8 @@ function Price(props) {
       ) : isLoading ? (
         <div>loading...</div>
       ) : (
-        <p>
-          Price: {data.DISPLAY[props.crypto].GBP.PRICE}
+        <p className="mb-0">
+          {data.DISPLAY[props.crypto].GBP.PRICE}
           <span
             className={
               data.DISPLAY[props.crypto].GBP.CHANGEPCTDAY > 0
