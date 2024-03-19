@@ -13,29 +13,35 @@ function Price(props) {
       return response.json();
     });
 
+  // Implements useSWR  
   const { data, error, isLoading } = useSWR(
     `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${props.crypto}&tsyms=GBP`,
     fetcher,
-    { refreshInterval: 100000 }
-
+    { refreshInterval: 10000000 }
   );
   const coinPrice = data.DISPLAY[props.crypto].GBP.PRICE
   console.log(coinPrice);
 
-  if (error) return <div>failed to load</div>;
-  if (isLoading) return <div>loading...</div>;
   return (
     <div>
-      Price: {props.coinPrice}
-      <span
-        className={
-          data.DISPLAY[props.crypto].GBP.CHANGEPCTDAY > 0
-            ? "text-success ms-4"
-            : "text-danger ms-4"
-        }
-      >
-        {data.DISPLAY[props.crypto].GBP.CHANGEPCTDAY}%
-      </span>
+      {error ? (
+        <div>failed to load</div>
+      ) : isLoading ? (
+        <div>loading...</div>
+      ) : (
+        <p className="mb-0">
+          {data.DISPLAY[props.crypto].GBP.PRICE}
+          <span
+            className={
+              data.DISPLAY[props.crypto].GBP.CHANGEPCTDAY > 0
+                ? "text-success ms-4"
+                : "text-danger ms-4"
+            }
+          >
+            {data.DISPLAY[props.crypto].GBP.CHANGEPCTDAY}%
+          </span>
+        </p>
+      )}
     </div>
   );
 }
