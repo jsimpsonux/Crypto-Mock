@@ -5,8 +5,7 @@ import Price from './Price'
 
 function CryptoItem(props) {
   
-  
-  
+
 return (
     <>
       <div className="container-fluid d-flex flex-row w-75 border rounded-3 p-3 m-3 border-success border-2 align-items-center">
@@ -15,7 +14,7 @@ return (
       </div>
 
       <div className='col-5'>
-        <Price crypto={props.abr.toUpperCase()} />
+        <Price abr={props.abr.toUpperCase()} />
       </div>
 
       <div className='col-2' >
