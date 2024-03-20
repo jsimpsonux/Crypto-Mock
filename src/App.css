@@ -13,3 +13,24 @@
   background-repeat: no-repeat;
   padding:0px;
 }
+.p-3{
+  padding:2rem !important;
+}
+
+.m-3{
+  margin:4rem 12rem 4rem 12rem !important;
+}
+
+.css-2ulfj5-MuiTypography-root{
+  margin-right:120px !important;
+}
+
+/* .fs-5{
+  background: deepskyblue;
+  border-radius: 10px
+}
+
+.ms-5{
+  background: deepskyblue;
+  border-radius: 10px
+} */
