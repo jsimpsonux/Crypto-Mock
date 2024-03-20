@@ -7,6 +7,7 @@ import { Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { Paper } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
+import Price from '../Price';
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -34,10 +35,11 @@ function PurchasedItem(props) {
         spacing={{ xs: 1, sm: 2, md: 4 }}
       >
         <Item>
-        {props.img} {props.coin} {props.cost}
+        <Price crypto={props.abr.toUpperCase()} />
+        {/* {props.img} {props.coin} {props.cost} */}
           <Chip
             label="Delete coin"
-            onClick={handleDelete}
+            // onClick={handleDelete}
             deleteIcon={<DeleteIcon />}
             variant="outlined"
           />

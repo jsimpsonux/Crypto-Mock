@@ -25,7 +25,7 @@ function RemainingFunds() {
 
   return (
     <div>
-      <h3>Remaining</h3>
+      <h3>Balance</h3>
       <Alert variant="filled" severity="info">
         {/* Remaining funds: {remainingFunds} */}
         880

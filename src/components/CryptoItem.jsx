@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Logo from './Logo'
 import Price from './Price'
-import Watchlist from './Watchlist';
+// import Watchlist from './Watchlist';
 import RenderItems from './Watchlist/RenderItems';
 
 function CryptoItem(props) {
