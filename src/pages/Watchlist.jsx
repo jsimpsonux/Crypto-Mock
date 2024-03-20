@@ -1,10 +1,11 @@
 import React from 'react';
 import { Typography } from '@mui/material';
+import WatchList from '../components/WatchList';
 
 const Watchlist = () => {
   return (
     <Typography variant="h6" component="div">
-      This is Watchlist page
+      <WatchList/>
     </Typography>
   );
 };

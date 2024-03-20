@@ -6,12 +6,12 @@
   },
   {
     "id": 2,
-    "name": "Ethereum ",
+    "name": "Ethereum",
     "abbreviation": "ETH"
   },
   {
     "id": 3,
-    "name": "Binance",
+    "name": "BNB",
     "abbreviation": "BNB"
   },
   {
@@ -31,7 +31,7 @@
   },
   {
     "id": 7,
-    "name": "Polkadot",
+    "name": "Polkadot-new",
     "abbreviation": "DOT"
   },
   {
