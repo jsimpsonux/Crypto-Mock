@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useState, useEffect} from "react";
 import Chip from "@mui/material/Chip";
 import Box from "@mui/system/Box";
 import { Grid } from "@mui/material";
@@ -19,13 +19,14 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 function PurchasedItem(props) {
+  const [payment, setPayments] = useState()
 
-  const handleDelete = () => {
-    dispatch({
-      type: 'DELETE_COIN',
-      payload: props.id,
-    })
-  };
+  // const handleDelete = (id) => {
+  //   setPayments((prevPayments) => {
+  //     return prevPayments.filter((payment) => payment.id !==id);
+  //   })
+  // };
+
   return (
     <Box sx={{ width: 400 }} padding={1}>
       <Stack

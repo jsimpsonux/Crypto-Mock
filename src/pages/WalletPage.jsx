@@ -1,20 +1,15 @@
 import React from "react";
-import "./style.css";
 import { Box, Container } from "@mui/system";
 import { styled } from "@mui/material/styles";
-import Funds from "../Funds";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import { palette } from "@mui/system";
-import cryptoData from "../../data/crypto.json";
 import { Typography } from "@mui/material";
+// import PurchaseList from "../PurchasedList";
+import RemainingFunds from "../components/RemainingFunds";
+import TotalInvested from "../components/TotalInvested";
+import Funds from "../components/Funds";
 
-import PurchaseList from "../PurchasedList";
-import Remaining from "../Remaining";
-import TotalInvested from "../TotalInvested";
-import { WalletPageProvider } from "../WalletPageContext";
-
-import Price from '../Price';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -24,9 +19,8 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-const WalletPage = () => {
+const Wallet = () => {
   return (
-    <WalletPageProvider>
       <Container maxWidth="sm">
         {/* <Typography variant="h4" component="h2" marginTop={5} marginBottom={3}>
           Wallet
@@ -40,7 +34,7 @@ const WalletPage = () => {
           </Box>
           <Box gridColumn="span 6">
             <Item>
-              <Remaining />
+              <RemainingFunds />
             </Item>
           </Box>
           <Box gridColumn="span 6">
@@ -55,38 +49,11 @@ const WalletPage = () => {
         </Typography>
         <Box>
           <Box>
-            <PurchaseList />
-            <Price />
+         
           </Box>
         </Box>
       </Container>
-    </WalletPageProvider>
   );
 };
 
-export default WalletPage;
-
-// {cryptoData.map((crypto, index) => (
-//   <>
-//    <Typography
-//    variant="h4"
-//    component="h2"
-//    marginTop={5}
-//    marginBottom={3}
-//    >
-//      Coin: {crypto.name}
-//    </Typography>
-//    <Grid container spacing={1}>
-//      {cryptoData.map((crypto, index) =>   <BoxItem crypto={crypto} key={index}/>)}
-
-//    <div>
-//      {/* <PurchaseList /> */}
-//    </div>
-
-//    {/* <h3>Purchase History</h3> */}
-//    {/* <div>
-//    // <PurchaseList />
-//  </div> */}
-//  </Grid>
-//  </>
-//  ))}
+export default Wallet;
