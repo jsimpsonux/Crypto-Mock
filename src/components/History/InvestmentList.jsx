@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import PurchasedItem from './PurchasedItem';
+import InvestmentItem from './InvestmentItem';
 
-function PurchasedList() {
+
+function InvestmentList() {
 
   const [puchasedCoins, setPurchasedCoins] = useState({})
 
@@ -16,7 +17,7 @@ function PurchasedList() {
   return (
     <ul>
       {puchasedCoins.map((item) => (
-        <PurchasedItem
+        <InvestmentItem
         key={item.id}
         img={item.img}
           id={item.id}
@@ -28,4 +29,4 @@ function PurchasedList() {
   );
 }
 
-export default PurchasedList;
+export default InvestmentList;

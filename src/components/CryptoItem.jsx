@@ -9,6 +9,7 @@ function CryptoItem(props) {
 
   const handleChange = (e) => {
  setCryptoItemName(e.target.name)
+ console.log(setCryptoItemName);
 
   }
   // // const list= JSON.parse(localStorage.getItem("cryptoList"));

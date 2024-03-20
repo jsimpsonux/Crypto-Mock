@@ -8,6 +8,7 @@ import { styled } from "@mui/material/styles";
 import { Paper } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Price from '../Price';
+import FundsTest from "../FundsTest";
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -19,7 +20,7 @@ const Item = styled(Paper)(({ theme }) => ({
   flexGrow: 1,
 }));
 
-function PurchasedItem(props) {
+function InvestmentItem(props) {
   const [payment, setPayments] = useState()
 
   // const handleDelete = (id) => {
@@ -35,7 +36,6 @@ function PurchasedItem(props) {
         spacing={{ xs: 1, sm: 2, md: 4 }}
       >
         <Item>
-        <Price crypto={props.abr.toUpperCase()} />
         {/* {props.img} {props.coin} {props.cost} */}
           <Chip
             label="Delete coin"
@@ -51,4 +51,4 @@ function PurchasedItem(props) {
   
 }
 
-export default PurchasedItem;
+export default InvestmentItem;

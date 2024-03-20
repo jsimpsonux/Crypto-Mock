@@ -5,10 +5,10 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import { palette } from "@mui/system";
 import { Typography } from "@mui/material";
-import PurchaseList from "../components/Investments/PurchasedList";
+import PurchaseList from "../components/History/InvestmentList";
 import RemainingFunds from "../components/RemainingFunds";
 import TotalInvested from "../components/TotalInvested";
-import Funds from "../components/Funds";
+import FundsTest from "../components/FundsTest";
 import Price from "../components/Price";
 // import Watchlist from "../components/Watchlist/RenderItems";
 import CryptoItem from "../components/CryptoItem";
@@ -40,21 +40,21 @@ const WalletPage = (props) => {
       "December",
     ];
     let days = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday"
-    ]
-    let d = new Date()
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday",
+    ];
+    let d = new Date();
     let day = days[d.getDay()];
     let date = d.getDate();
     let month = months[d.getMonth()];
     let year = d.getFullYear();
 
-    return `${day} ${date} ${month} ${year}`
+    return `${day} ${date} ${month} ${year}`;
   };
   return (
     <Container maxWidth="sm">
@@ -65,21 +65,21 @@ const WalletPage = (props) => {
       <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={2}>
         <Box gridColumn="span 12">
           <Item>
-          <RemainingFunds />
-          </Item>
-        </Box>
-        <Box gridColumn="span 6">
-          <Item>
-          <Funds />
-          </Item>
-        </Box>
-        <Box gridColumn="span 6">
-          <Item>
             <TotalInvested />
           </Item>
         </Box>
         <Box gridColumn="span 12">
           <Item>{dateBuilder()}</Item>
+        </Box>
+        {/* <Box gridColumn="span 12">
+          <Item>
+          <RemainingFunds />
+          </Item>
+        </Box> */}
+        <Box gridColumn="span 12">
+          <Item>
+            <FundsTest />
+          </Item>
         </Box>
       </Box>
 
@@ -87,20 +87,7 @@ const WalletPage = (props) => {
         History
       </Typography>
       <Box>
-        <Box>
-          {/* <Price crypto={props.abr} /> */}
-          {/* {selected.map((element) => (
-          <CryptoItem
-            name={findName(element)}
-            abr={element}
-            size="40px"
-            key={findId(element)}
-            // handleRemove={handleRemove}
-            
-          />
-        ))} */}
-        
-        </Box>
+        <Box></Box>
       </Box>
     </Container>
   );

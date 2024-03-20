@@ -3,28 +3,9 @@ import Alert from "@mui/material/Alert";
 import data from "../data/crypto.json";
 import CryptoItem from "./CryptoItem";
 
-const getPurchasedCoins = () => {
-  
-//   const data = JSON.parse(localStorage.getItem("purchasedCoins"));
-//   if (!data) return [];
-//   return data;
-};
+
 
 function RemainingFunds() {
-  // const [purchasedCoins, setPurchasedCoins] = useState(getPurchasedCoins)
-
-  //   const totalInvestments = investments.reduce((total, item) => {
-  //     return (total = total + item.cost)
-  //   }, 0)
-
-  //   const remainingFunds = funds - totalInvestments
-
-  //   useEffect(() => {
-  //     localStorage.setItem("purchasedItems", JSON.stringify(purchasedCoins));
-  //   }, [purchasedCoins])
-
-  // const alertType = totalInvestments > funds ? 'warning' : 'info'
-
   return (
     <div>
       <h3>Balance</h3>
