@@ -4,17 +4,17 @@ import cryptoinfo from "./cryptoinfoing.json";
 import Wrapper from "wrapper";
 
 function App() {
-  const [crypto] = useState(cryptoinfo);
+  // const [crypto] = useState(cryptoinfo);
 
   return (
     <Wrapper>
-      {crypto.map((crypto) => (
+      {/* {crypto.map((crypto) => (
         <Cryptodisplay
           name={crypto.name}
           info={crypto.info}
           change={crypto.change}
         />
-      ))}
+      ))} */}
       ;
     </Wrapper>
   );
