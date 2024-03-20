@@ -23,7 +23,7 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-const Wallet = () => {
+const WalletPage = (props) => {
   const dateBuilder = () => {
     let months = [
       "January",
@@ -88,7 +88,7 @@ const Wallet = () => {
       </Typography>
       <Box>
         <Box>
-          {/* <Price crypto={props.abr.toUpperCase()} /> */}
+          {/* <Price crypto={props.abr} /> */}
           {/* {selected.map((element) => (
           <CryptoItem
             name={findName(element)}
@@ -99,10 +99,11 @@ const Wallet = () => {
             
           />
         ))} */}
+        
         </Box>
       </Box>
     </Container>
   );
 };
 
-export default Wallet;
+export default WalletPage;

@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Alert from "@mui/material/Alert";
 import data from "../data/crypto.json";
+import CryptoItem from "./CryptoItem";
 
-// const getPurchasedCoins = () => {
+const getPurchasedCoins = () => {
+  
 //   const data = JSON.parse(localStorage.getItem("purchasedCoins"));
 //   if (!data) return [];
 //   return data;
-// };
+};
 
 function RemainingFunds() {
   // const [purchasedCoins, setPurchasedCoins] = useState(getPurchasedCoins)

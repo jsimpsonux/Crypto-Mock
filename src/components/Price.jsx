@@ -1,6 +1,7 @@
 import useSWR from "swr";
 
 function Price(props) {
+  let priceData = []
   const fetcher = (...args) =>
     fetch(new Request(...args), {
       method: "GET",
@@ -10,8 +11,16 @@ function Price(props) {
           'Apikey "7a8bd0d679fc1ef6e8884f50d98b9936c0323c5dea683ebb9952a67e4adddeef"',
       }),
     }).then(function (response) {
-      return response.json();
-    });
+  
+      return response.json()
+
+    })
+
+    // .then((data) => {
+    //   // console.log(data);
+    //   priceData = data;
+    // }
+    // )
 
   // Implements useSWR  
   const { data, error, isLoading } = useSWR(
@@ -19,8 +28,11 @@ function Price(props) {
     fetcher,
     { refreshInterval: 10000000 }
   );
-  const coinPrice = data.DISPLAY[props.crypto].GBP.PRICE
-  console.log(coinPrice);
+  // console.log(data);
+  // const coinPrice = data.DISPLAY[props.crypto].GBP.PRICE
+  // console.log("hello");
+  // console.log(coinPrice);
+
 
   return (
     <div>

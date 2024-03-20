@@ -10,14 +10,14 @@ function RenderItems() {
   ////moved from crypto
    // const list= JSON.parse(localStorage.getItem("cryptoList"));
    const [list, setList] = useState(initialCryptoList);
-   console.log(list);
+  //  console.log(list);
   
    const handleRemove= (event)=>{
      
      setList({...list,[event.target.name]:false})
      // setItem(event.target.name);
      // list[removeItem] = false;
-     console.log(list)
+    //  console.log(list)
      // localStorage.setItem("cryptoList", JSON.stringify(list));
         
    }
