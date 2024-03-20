@@ -7,32 +7,6 @@ import RenderItems from './WatchList/RenderItems';
 function CryptoItem(props) {
   
   
-  
-  // // const list= JSON.parse(localStorage.getItem("cryptoList"));
-  // const [list, setList] = useState(JSON.parse(localStorage.getItem("cryptoList")));
-  // console.log(list);
- 
-  // const handleRemove= (event)=>{
-    
-  //   setList({...list,[event.target.name]:false})
-  //   // setItem(event.target.name);
-  //   // list[removeItem] = false;
-  //   console.log(list)
-  //   // localStorage.setItem("cryptoList", JSON.stringify(list));
-       
-  // }
-
-  // useEffect(() => {
-  //    localStorage.setItem("cryptoList", JSON.stringify(list));
-
-  //   //  ReactDOM.render(
-  //   //   <RenderItems/>,
-  //   //   document.body
-  //   // );
-
-
-  // }, [list]);
-
 
 return (
     <>
@@ -42,7 +16,7 @@ return (
       </div>
 
       <div className='col-5'>
-        <Price crypto={props.abr.toUpperCase()} />
+        <Price abr={props.abr.toUpperCase()} />
       </div>
 
       <div className='col-2' >
