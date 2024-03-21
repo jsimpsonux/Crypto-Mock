@@ -1,26 +1,17 @@
 import useSWR from "swr";
 
 function Price(props) {
-  let priceData = []
   const fetcher = (...args) =>
     fetch(new Request(...args), {
       method: "GET",
       headers: new Headers({
         "content-type": "application/json",
         authorization:
-          'Apikey "7a8bd0d679fc1ef6e8884f50d98b9936c0323c5dea683ebb9952a67e4adddeef"',
+          'Apikey "decb05752b2fdc589a80b18337ab566dfa63e3baf5639ebc35ad882463279e25"',
       }),
     }).then(function (response) {
-  
-      return response.json()
-
-    })
-
-    // .then((data) => {
-    //   // console.log(data);
-    //   priceData = data;
-    // }
-    // )
+      return response.json();
+    });
 
   // Implements useSWR  
   const { data, error, isLoading } = useSWR(
@@ -28,7 +19,7 @@ function Price(props) {
     fetcher,
     { refreshInterval: 10000000 }
   );
-
+  console.log(data)
   return (
     <div>
       {error ? (
