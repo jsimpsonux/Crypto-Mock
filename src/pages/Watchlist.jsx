@@ -1,17 +1,15 @@
-import React from 'react';
-import { Typography } from '@mui/material';
-import WatchList from '../components/Watchlist/index.jsx';
+
+import React from "react";
+import { Typography } from "@mui/material";
+import WatchList from "../components/WatchListComponent/index.jsx";
+import "../App.css";
+
 
 const Watchlist = () => {
   return (
     <Typography variant="h6" component="div">
-
-
       <WatchList />
-
-
-    
-     </Typography>
+    </Typography>
   );
 };
 
