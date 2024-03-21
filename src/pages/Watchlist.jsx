@@ -1,7 +1,9 @@
+
 import React from "react";
 import { Typography } from "@mui/material";
 import WatchList from "../components/WatchListComponent/index.jsx";
 import "../App.css";
+
 
 const Watchlist = () => {
   return (
