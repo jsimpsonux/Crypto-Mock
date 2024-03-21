@@ -10,7 +10,7 @@ This [project](https://jocular-youtiao-8f6012.netlify.app/) mocks a cryptocruncy
 
 **Watchlist:** Allows users to customize their watchlist by adding or removing cryptocurrencies, facilitating personalized tracking.
 
-**Portfolio:** Offers a view of purchased items, enabling users to manage their investments efficiently.
+**Portfolio:** (future development) Offers a view of purchased items, enabling users to manage their investments efficiently.
 
 **Wallet:** Keeps track of invested funds, providing users with insights into their financial activities within the platform.
 
