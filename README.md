@@ -24,6 +24,8 @@ To enhance functionality and user experience, we have leveraged the following li
 
 [Material UI](https://mui.com/material-ui/) Employed to enhance the aesthetics and usability of the application, offering a modern and cohesive user interface.
 
+[UUID](https://www.npmjs.com/package/uuid)  The uuid package provides functionality for generating unique id number in a format of cryptographically secure standard UUIDs. 
+
 Below figure shows a screenshot from the running application.
 
 <figure>
