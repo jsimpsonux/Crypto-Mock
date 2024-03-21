@@ -8,94 +8,102 @@ import Icon from "@mui/material/Icon";
 import { v4 as uuidv4 } from "uuid";
 
 function Funds(props) {
-  const [inputFields, setInputFields] = useState([{ id: uuidv4(), paid: 0 }
+  const [inputFields, setInputFields] = useState([
+    { id: uuidv4(), paid: "", totalBalance: "" },
   ]);
-
   const [addFunds, setAddFunds] = useState(0);
   const [totalBalance, setTotalBalance] = useState(0);
 
-// Load inputFields data from local storage on component mount
-useEffect(() => {
-  const storedInputFields = JSON.parse(localStorage.getItem('inputFields'));
-  if (storedInputFields) {
-    setInputFields(storedInputFields);
-  }
-}, []);
+  ///--------Local storage---------//
 
-// Save inputFields data to local storage whenever it changes
-useEffect(() => {
-  localStorage.setItem('inputFields', JSON.stringify(inputFields));
-}, [inputFields]);
-
-// Handle form submission
-const handleSubmit = (event) => {
-  event.preventDefault();
-  setTotalBalance(addFunds);
-
-  // props.history.push(inputFields);
-  console.log("InputFields", inputFields);
-};
-
-// Handle change in input fields
-const handleChangeInput = (id, event) => {
-  const newInputFields = inputFields.map(i => {
-    if (id === i.id) {
-      i.paid = event.target.value;
+  useEffect(() => {
+    // Load inputFields data from local storage on component mount
+    const storedInputFields = JSON.parse(localStorage.getItem("inputFields"));
+    if (storedInputFields) {
+      setInputFields(storedInputFields);
     }
-    return i;
-  });
+  }, []);
 
-  // Calculate new total paid amount
-  const newTotal = newInputFields.reduce((total, inputField) => {
-    return total + Number(inputField.paid || 0);
-  }, 0);
+  useEffect(() => {
+    // Save inputFields data to local storage whenever it changes
+    localStorage.setItem("inputFields", JSON.stringify(inputFields));
+  }, [inputFields]);
 
-  // Update inputFields state and totalBalance state
-  setInputFields(newInputFields);
-  setAddFunds(newTotal);
-};
+  //-------------//
 
-return (
-  <Container>
-    <h4>Total:</h4>
-    <TextField
-      type="number"
-      name="totalBalance"
-      label="Total Balance"
-      variant="filled"
-      value={totalBalance}
-      onChange={event => setTotalBalance(event.target.value)}
-    />
-    <br />
-    <form onSubmit={handleSubmit}>
-      {inputFields.map(inputField => (
-        <div key={inputField.id}>
-          {/* Input field for paid amount */}
-          <TextField
-            type="number"
-            name="paid"
-            label="Paid"
-            variant="filled"
-            value={inputField.paid}
-            onChange={event => handleChangeInput(inputField.id, event)}
-          />
-        </div>
-      ))}
-      {/* Display total paid amount */}
-      <h3>Add funds: {addFunds}</h3>
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const paidAmount= inputFields.reduce(
+      (total, field) => total + Number(field.paid || 0),
+      0
+    );
+
+    let newTotalBalance = totalBalance + paidAmount
+
+    // Update the total balance for each input field
+    const updatedInputFields = inputFields.map(field => ({ ...field, totalBalance: newTotalBalance }));
+    setInputFields(updatedInputFields);
+    setAddFunds('')
+    setAddFunds(newTotalBalance);
+    setTotalBalance(newTotalBalance);
+    console.log("InputFields", inputFields);
+
+   
+
+  };
+
+  const handleChangeInput = (id, event) => {
+    const newInputFields = inputFields.map((field) => {
+      if (id === field.id) {
+        return { ...field, paid: event.target.value };
+      }
+      return field;
+    });
+    setInputFields(newInputFields);
+  };
+
+  return (
+    <Container>
+      <h4>Total:</h4>
       <br />
-      {/* Submit button */}
-      <Button  
-        variant="contained"
-        color="primary"
-        type="submit"
-        onClick={handleSubmit}
-      >Pay</Button>
-    </form>
-  </Container>
-);
+      <form onSubmit={handleSubmit}>
+        {inputFields.map((inputField) => (
+          <div key={inputField.id}>
+            <TextField
+              type="number"
+              name="totalBalance"
+              label="Total Balance"
+              variant="filled"
+              value={totalBalance}
+              onChange={(event) => setTotalBalance(event.target.value)}
+            />
+            {/* Input field for paid amount */}
+            <TextField
+              type="number"
+              name="paid"
+              label="Paid"
+              variant="filled"
+              value={inputField.paid}
+              onChange={(event) => handleChangeInput(inputField.id, event)}
+            />
+          </div>
+        ))}
+        {/* Display total paid amount */}
+        {/* <h3>Add funds: {addFunds}</h3> */}
+        <br />
+        {/* Submit button */}
+        <Button
+          variant="contained"
+          color="primary"
+          type="submit"
+          onClick={handleSubmit}
+        >
+          Pay
+        </Button>
+      </form>
+    </Container>
+  );
 }
-
-
 
 export default Funds;
