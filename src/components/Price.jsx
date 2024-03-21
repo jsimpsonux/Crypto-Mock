@@ -17,7 +17,7 @@ function Price(props) {
   const { data, error, isLoading } = useSWR(
     `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${props.abr}&tsyms=GBP`,
     fetcher,
-    { refreshInterval: 3000 }
+    { refreshInterval: 1000 }
   );
   console.log(data);
   return (
