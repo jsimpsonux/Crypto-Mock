@@ -23,7 +23,7 @@ To enhance functionality and user experience, we have leveraged the following li
 [React Bootstrap](https://react-bootstrap.github.io/): Integrated to streamline UI development, enabling responsive and visually appealing design elements.
 
 [Material UI](https://mui.com/material-ui/) Employed to enhance the aesthetics and usability of the application, offering a modern and cohesive user interface.
-T
+
 ## Installation
 
 N/A
