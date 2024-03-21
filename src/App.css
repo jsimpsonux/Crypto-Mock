@@ -14,23 +14,17 @@
   padding:0px;
 }
 .p-3{
-  padding:2rem !important;
+  padding:2rem !important; 
 }
 
 .m-3{
-  margin:4rem 12rem 4rem 12rem !important;
+  margin:4rem 12rem 4rem 9rem !important;
 }
 
 .css-2ulfj5-MuiTypography-root{
   margin-right:120px !important;
 }
 
-/* .fs-5{
-  background: deepskyblue;
-  border-radius: 10px
+.modal-header{
+  margin-top:30px;
 }
-
-.ms-5{
-  background: deepskyblue;
-  border-radius: 10px
-} */
