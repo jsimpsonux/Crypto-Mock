@@ -4,7 +4,6 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import crypto from "../../data/crypto.json";
 import Logo from "../Logo";
-import CryptoItem from "../CryptoItem";
 import RenderItems from "./RenderItems";
 
 
