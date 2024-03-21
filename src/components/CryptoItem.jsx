@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import Logo from './Logo'
 import Price from './Price'
@@ -18,31 +17,14 @@ return (
         <Price abr={props.abr.toUpperCase()} />
       </div>
 
-        <div className="col-5">
-          <Price crypto={props.abr.toUpperCase()} />
-        </div>
+      <div className='col-2' >
+        <button className='btn btn-success w-75 p-0 pt-2 pb-2' type="button" name={props.abr}>Buy</button>
+      </div>
 
-        <div className="col-2">
-          <button
-            className="btn btn-success w-75 p-0 pt-2 pb-2"
-            type="button"
-            name={props.abr}
-            onChange={handleChange}
-          >
-            Buy
-          </button>
-        </div>
+      <div className='col-2'>
+        <button  className='btn btn-danger w-75 p-0 pt-2 pb-2' type="button" onClick={props.handleRemove} name={props.abr} >Remove</button>
+      </div>
 
-        <div className="col-2">
-          <button
-            className="btn btn-danger w-75 p-0 pt-2 pb-2"
-            type="button"
-            onClick={props.handleRemove}
-            name={props.abr}
-          >
-            Remove
-          </button>
-        </div>
       </div>
     </>
   );
