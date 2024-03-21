@@ -45,35 +45,3 @@ function Price(props) {
 }
 
 export default Price;
-
-
-// ---------- Previous version -----------
-
-// const fetcher = async (
-//   url,
-//   payload,
-// ) => {
-//   const options = {
-//     method:  "POST",
-//     headers: {
-//       accept: "application/json",
-//       "Content-Type": "application/json",
-//       "x-api-key": "cf057150-2021-43ee-9e3a-d2d07e6e4a2d"
-//     },
-//   };
-
-//   return fetch(url, options).then(r => r.json());
-
-// };
-
-// function FetchData () {
-// const { data, error, isLoading } = useSWR('https://corsproxy.io/?https://api.livecoinwatch.com/coins/list', fetcher)
-// const { icon } = useSWR('https://corsproxy.io/?https://api.livecoinwatch.com/coins/single', fetcher)
-// console.log(data);
-// console.log(icon);
-// if (error) return <div>failed to load</div>
-// if (isLoading) return <div>loading...</div>
-// if (data) return <CryptoList data={data}/>
-// if (icon) return <CryptoList icon={icon}/>
-// // render data
-// }

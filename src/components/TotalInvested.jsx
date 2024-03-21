@@ -35,7 +35,7 @@ function TotalInvested() {
   return (
     <div>
       <h3>Invested</h3>
-      <Alert variant="filled" severity='info'>
+      <Alert className="bg-dark" variant="filled" severity='info'>
       {/* £{totalInvestments} */}
       675
       </Alert>
