@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import Logo from './Logo'
 import Price from './Price'
 
@@ -30,4 +29,4 @@ return (
   );
 }
 
-export default CryptoItem
+export default CryptoItem;
