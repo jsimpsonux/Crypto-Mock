@@ -5,15 +5,11 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import { palette } from "@mui/system";
 import { Typography } from "@mui/material";
-import PurchaseList from "../components/History/InvestmentList";
-import RemainingFunds from "../components/RemainingFunds";
 import TotalInvested from "../components/TotalInvested";
-import FundsTest from "../components/FundsTest";
-import Price from "../components/Price";
-// import Watchlist from "../components/Watchlist/RenderItems";
-import CryptoItem from "../components/CryptoItem";
-import Cryptodisplay from "../components/cryptodisplaying/index";
-import cryptoinfo from "../components/cryptoinfoing.json";
+import Funds from "../components/Funds";
+import History from "../components/History";
+
+
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -58,10 +54,6 @@ const WalletPage = (props) => {
   };
   return (
     <Container maxWidth="sm">
-      {/* <Typography variant="h4" component="h2" marginTop={5} marginBottom={3}>
-          Wallet
-        </Typography> */}
-
       <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={2}>
         <Box gridColumn="span 12">
           <Item>
@@ -71,24 +63,17 @@ const WalletPage = (props) => {
         <Box gridColumn="span 12">
           <Item>{dateBuilder()}</Item>
         </Box>
-        {/* <Box gridColumn="span 12">
-          <Item>
-          <RemainingFunds />
-          </Item>
-        </Box> */}
         <Box gridColumn="span 12">
           <Item>
-            <FundsTest />
+            <Funds />
           </Item>
         </Box>
       </Box>
+      {/* <Box gridColumn="span 12">
+        <History />
+      </Box> */}
 
-      <Typography variant="h5" marginTop={5} marginBottom={3}>
-        History
-      </Typography>
-      <Box>
-        <Box></Box>
-      </Box>
+    
     </Container>
   );
 };
