@@ -3,10 +3,13 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import crypto from "../../data/crypto.json";
-import RenderItems from "./RenderItems";
 import Logo from "../Logo";
+import RenderItems from "./RenderItems";
+
+
 
 function WatchList() {
+
   const cryptoList =
     localStorage.getItem("cryptoList") != null &&
     localStorage.getItem("cryptoList") != "undefined"
@@ -134,4 +137,6 @@ function WatchList() {
   );
 }
 
+
 export default WatchList;
+

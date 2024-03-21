@@ -10,7 +10,7 @@ function RenderItems() {
   ////moved from crypto
    // const list= JSON.parse(localStorage.getItem("cryptoList"));
    const [list, setList] = useState(initialCryptoList);
-   console.log(list);
+
   
    const handleRemove= (event)=>{
      
@@ -18,8 +18,6 @@ function RenderItems() {
      // setItem(event.target.name);
      // list[removeItem] = false;
      console.log(list)
-     
-        
    }
 
   const selected = Object.keys(list).filter((element) => list[element]);
@@ -32,6 +30,7 @@ function RenderItems() {
 
     localStorage.setItem("cryptoList", JSON.stringify(list));
 }, [list]);
+
 
   
 

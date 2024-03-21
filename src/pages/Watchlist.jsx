@@ -5,12 +5,12 @@ import WatchList from "../components/WatchlistComponent/index.jsx";
 import "../App.css";
 
 
-const Watchlist = () => {
+function Watchlist() {
   return (
     <Typography variant="h6" component="div">
       <WatchList />
     </Typography>
   );
-};
+}
 
 export default Watchlist;
