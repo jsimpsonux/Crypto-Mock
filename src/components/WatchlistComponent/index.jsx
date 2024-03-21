@@ -9,10 +9,10 @@ import RenderItems from "./RenderItems";
 
 function WatchList() {
   const cryptoList =
-    localStorage.getItem("cryptoList") != null &&
-    localStorage.getItem("cryptoList") != "undefined"
-      ? JSON.parse(localStorage.getItem("cryptoList"))
-      : {};
+  localStorage.getItem("cryptoList") != null && localStorage.getItem("cryptoList") != "undefined"
+  ? JSON.parse(localStorage.getItem("cryptoList"))
+  : {};
+
 
   // read from local stoge which item has tick
   if (Object.keys(cryptoList).length === 0) {
@@ -53,9 +53,10 @@ function WatchList() {
     // localStorage.setItem("cryptoList", JSON.stringify(cryptoList));
     setForm({ ...form, [id]: checked });
     //cryptoList = form;
+  
   };
 
-  return (
+return (
     <>
       {/* Header */}
       <div className="container-fluid d-flex flex-row w-75 pb-0 m-3 mb-0 align-items-center">
@@ -122,6 +123,7 @@ function WatchList() {
         </div>
       </div>
       <RenderItems />
+      
     </>
   );
 }
