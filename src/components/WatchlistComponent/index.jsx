@@ -3,16 +3,15 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import crypto from "../../data/crypto.json";
-import Logo from "../Logo";
-import CryptoItem from "../CryptoItem";
 import RenderItems from "./RenderItems";
+import Logo from "../Logo";
 
 function WatchList() {
   const cryptoList =
-  localStorage.getItem("cryptoList") != null && localStorage.getItem("cryptoList") != "undefined"
-  ? JSON.parse(localStorage.getItem("cryptoList"))
-  : {};
-
+    localStorage.getItem("cryptoList") != null &&
+    localStorage.getItem("cryptoList") != "undefined"
+      ? JSON.parse(localStorage.getItem("cryptoList"))
+      : {};
 
   // read from local stoge which item has tick
   if (Object.keys(cryptoList).length === 0) {
@@ -21,12 +20,20 @@ function WatchList() {
     });
   }
 
-  const [form, setForm] = useState({ ...cryptoList });
+  const [form, setForm] = useState(cryptoList);
+  const [dummyForm, setDummyForm] = useState(cryptoList);
+
+  useEffect(() => {
+    localStorage.setItem("cryptoList", JSON.stringify(dummyForm));
+  }, [dummyForm]);
 
   const [show, setShow] = useState(false);
   const handleClose = () => {
     setShow(false);
-    setForm({ ...cryptoList });
+    setForm(dummyForm);
+   
+    // localStorage.setItem("cryptoList", JSON.stringify(dummyForm));
+
   };
   const handleShow = () => {
     setShow(true);
@@ -36,27 +43,27 @@ function WatchList() {
     setShow(false);
 
     // Save changes to cryptoList and localStorage
-    for (let elm in form) {
-      cryptoList[elm] = form[elm];
-    }
-    localStorage.setItem("cryptoList", JSON.stringify(form));
+    // for (let elm in form) {
+    //   cryptoList[elm] = form[elm];
+    // }
+    setDummyForm(form);
+    
+    localStorage.setItem("cryptoList", JSON.stringify(dummyForm));
   };
 
   const handleChangeWatchlist = (event) => {
     //console.log(event.target.name)
     // Getting the id and state of the buttons which triggered the change
     const { id, checked } = event.target;
-    // const cryptoForm =form;
-    // // Updating the map
-    // cryptoForm[id]= checked;
+
+    // cryptoList[id] = checked;
     // console.log(cryptoForm)
     // localStorage.setItem("cryptoList", JSON.stringify(cryptoList));
     setForm({ ...form, [id]: checked });
     //cryptoList = form;
-  
   };
 
-return (
+  return (
     <>
       {/* Header */}
       <div className="container-fluid d-flex flex-row w-75 pb-0 m-3 mb-0 align-items-center">
@@ -123,7 +130,6 @@ return (
         </div>
       </div>
       <RenderItems />
-      
     </>
   );
 }
