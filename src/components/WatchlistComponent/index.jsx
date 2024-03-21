@@ -7,7 +7,9 @@ import Logo from "../Logo";
 import CryptoItem from "../CryptoItem";
 import RenderItems from "./RenderItems";
 
-function WatchlistComponent() {
+
+function WatchList() {
+
   const cryptoList =
   localStorage.getItem("cryptoList") != null && localStorage.getItem("cryptoList") != "undefined"
   ? JSON.parse(localStorage.getItem("cryptoList"))
@@ -128,4 +130,6 @@ return (
   );
 }
 
-export default WatchlistComponent;
+
+export default WatchList;
+
