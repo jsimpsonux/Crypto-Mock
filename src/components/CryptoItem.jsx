@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import Logo from './Logo'
 import Price from './Price'
 
