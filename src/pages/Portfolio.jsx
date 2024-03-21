@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 // import Basket from '../components/PortfolioComponents';
-import { Typography } from '@mui/material';
+import { Typography } from "@mui/material";
 
 const Portfolio = () => {
   return (

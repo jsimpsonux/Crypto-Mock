@@ -9,8 +9,6 @@ import TotalInvested from "../components/TotalInvested";
 import Funds from "../components/Funds";
 import History from "../components/History";
 
-
-
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
@@ -72,8 +70,6 @@ const WalletPage = (props) => {
       {/* <Box gridColumn="span 12">
         <History />
       </Box> */}
-
-    
     </Container>
   );
 };

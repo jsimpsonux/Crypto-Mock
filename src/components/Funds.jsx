@@ -31,26 +31,25 @@ function Funds(props) {
 
   //-------------//
 
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    const paidAmount= inputFields.reduce(
+    const paidAmount = inputFields.reduce(
       (total, field) => total + Number(field.paid || 0),
       0
     );
 
-    let newTotalBalance = totalBalance + paidAmount
+    let newTotalBalance = totalBalance + paidAmount;
 
     // Update the total balance for each input field
-    const updatedInputFields = inputFields.map(field => ({ ...field, totalBalance: newTotalBalance }));
+    const updatedInputFields = inputFields.map((field) => ({
+      ...field,
+      totalBalance: newTotalBalance,
+    }));
     setInputFields(updatedInputFields);
-    setAddFunds('')
+    setAddFunds("");
     setAddFunds(newTotalBalance);
     setTotalBalance(newTotalBalance);
     console.log("InputFields", inputFields);
-
-   
-
   };
 
   const handleChangeInput = (id, event) => {

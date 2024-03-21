@@ -6,10 +6,7 @@ import crypto from "../../data/crypto.json";
 import Logo from "../Logo";
 import RenderItems from "./RenderItems";
 
-
-
 function WatchList() {
-
   const cryptoList =
     localStorage.getItem("cryptoList") != null &&
     localStorage.getItem("cryptoList") != "undefined"
@@ -34,9 +31,6 @@ function WatchList() {
   const handleClose = () => {
     setShow(false);
     setForm(dummyForm);
-   
-    // localStorage.setItem("cryptoList", JSON.stringify(dummyForm));
-
   };
   const handleShow = () => {
     setShow(true);
@@ -45,25 +39,15 @@ function WatchList() {
   const handleCloseAndSave = () => {
     setShow(false);
 
-    // Save changes to cryptoList and localStorage
-    // for (let elm in form) {
-    //   cryptoList[elm] = form[elm];
-    // }
     setDummyForm(form);
-    
+
     localStorage.setItem("cryptoList", JSON.stringify(dummyForm));
   };
 
   const handleChangeWatchlist = (event) => {
-    //console.log(event.target.name)
-    // Getting the id and state of the buttons which triggered the change
     const { id, checked } = event.target;
 
-    // cryptoList[id] = checked;
-    // console.log(cryptoForm)
-    // localStorage.setItem("cryptoList", JSON.stringify(cryptoList));
     setForm({ ...form, [id]: checked });
-    //cryptoList = form;
   };
 
   return (
@@ -137,6 +121,4 @@ function WatchList() {
   );
 }
 
-
 export default WatchList;
-

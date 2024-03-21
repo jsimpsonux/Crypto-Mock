@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect } from "react";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -10,10 +10,9 @@ import { Typography } from "@mui/material";
 
 function History() {
   return (
-
     // get inputFields from local storage
     <>
-        <Typography variant="h5" marginTop={5} marginBottom={3}>
+      <Typography variant="h5" marginTop={5} marginBottom={3}>
         History
       </Typography>
       <List sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
@@ -47,7 +46,7 @@ function History() {
         })}
       </List>
     </>
-  )
+  );
 }
 
-export default History
+export default History;

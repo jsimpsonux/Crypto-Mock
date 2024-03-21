@@ -1,11 +1,8 @@
-import React, {useState, useffect} from "react"
-import Alert from '@mui/material/Alert';
-
-
+import React, { useState, useffect } from "react";
+import Alert from "@mui/material/Alert";
 
 function TotalInvested() {
-
-    // LOCAL STORAGE
+  // LOCAL STORAGE
 
   // const [purchasedCoins, setPurchasedCoins] = useState(getPurchasedCoins)
 
@@ -26,7 +23,7 @@ function TotalInvested() {
     //   if (!data) return [];
     //   return data;
   };
-//
+  //
 
   // const totalInvestments = investments.reduce((total, item) => {
   //   return (total +=purchasedCoins);
@@ -35,12 +32,12 @@ function TotalInvested() {
   return (
     <div>
       <h3>Invested</h3>
-      <Alert className="bg-dark" variant="filled" severity='info'>
-      {/* £{totalInvestments} */}
-      675
+      <Alert className="bg-dark" variant="filled" severity="info">
+        {/* £{totalInvestments} */}
+        675
       </Alert>
     </div>
-  )
+  );
 }
 
-export default TotalInvested
+export default TotalInvested;
