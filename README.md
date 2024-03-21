@@ -24,6 +24,13 @@ To enhance functionality and user experience, we have leveraged the following li
 
 [Material UI](https://mui.com/material-ui/) Employed to enhance the aesthetics and usability of the application, offering a modern and cohesive user interface.
 
+Below figure shows a screenshot from the running application.
+
+<figure>
+<img src="./src/assets/cryptomock-app.png" width="500">
+<figcaption><em>Figure.1. Crypto-Mock application</em></figcaption>
+</figure>
+
 ## Installation
 
 N/A
