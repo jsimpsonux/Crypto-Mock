@@ -2,13 +2,7 @@ import CryptoItem from "../CryptoItem";
 import crypto from "../../data/crypto.json";
 import { useEffect, useState } from "react";
 
-function RenderItems() {
-  const initialCryptoList =
-    localStorage.getItem("cryptoList") != null &&
-    localStorage.getItem("cryptoList") != "undefined"
-      ? JSON.parse(localStorage.getItem("cryptoList"))
-      : {};
-
+function RenderItems(props) {
   const purchasedCoins =
     localStorage.getItem("purchasedCoins") != null &&
     localStorage.getItem("purchasedCoins") != "undefined"
@@ -17,40 +11,26 @@ function RenderItems() {
 
   ////moved from crypto
   // const list= JSON.parse(localStorage.getItem("cryptoList"));
-  const [list, setList] = useState(initialCryptoList);
   const [portfolio, setPortfolio] = useState(purchasedCoins);
 
-  const handleRemove = (event) => {
-    setList({ ...list, [event.target.name]: false });
-  };
-
   const handleBuy = (event) => {
-    setPortfolio({ ...list, [event.target.name]: true });
-    console.log(list);
+    setPortfolio({ ...portfolio, [event.target.name]: true });
   };
-
-  // purchasedCoins
-
-  const selected = Object.keys(list).filter((element) => list[element]);
 
   const findName = (element) =>
     crypto.find((e) => e.abbreviation == element).name;
   const findId = (element) => crypto.find((e) => e.abbreviation == element).id;
 
-  useEffect(() => {
-    localStorage.setItem("cryptoList", JSON.stringify(list));
-  }, [list]);
-
   return (
     <>
       <h4>
-        {selected.map((element) => (
+        {props.selected.map((element) => (
           <CryptoItem
             name={findName(element)}
             abr={element}
             size="40px"
             key={findId(element)}
-            handleRemove={handleRemove}
+            handleRemove={props.handleRemove}
             handleBuy={handleBuy}
           />
         ))}
