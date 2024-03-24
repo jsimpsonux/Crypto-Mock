@@ -13,7 +13,7 @@ function WatchList() {
       ? JSON.parse(localStorage.getItem("cryptoList"))
       : {};
 
-  // read from local stoge which item has tick
+  // If cryptoList in local storage is empty initialise it
   if (Object.keys(cryptoList).length === 0) {
     crypto.forEach((element) => {
       cryptoList[element.abbreviation] = false;
@@ -22,8 +22,12 @@ function WatchList() {
 
   const [form, setForm] = useState(cryptoList);
   const [dummyForm, setDummyForm] = useState(cryptoList);
+  const [selected, setSelected] = useState(
+    Object.keys(dummyForm).filter((element) => dummyForm[element])
+  );
 
   useEffect(() => {
+    setSelected(Object.keys(dummyForm).filter((element) => dummyForm[element]));
     localStorage.setItem("cryptoList", JSON.stringify(dummyForm));
   }, [dummyForm]);
 
@@ -38,16 +42,17 @@ function WatchList() {
 
   const handleCloseAndSave = () => {
     setShow(false);
-
     setDummyForm(form);
-
-    localStorage.setItem("cryptoList", JSON.stringify(dummyForm));
   };
 
   const handleChangeWatchlist = (event) => {
     const { id, checked } = event.target;
-
     setForm({ ...form, [id]: checked });
+  };
+
+  const handleRemove = (event) => {
+    setDummyForm({ ...dummyForm, [event.target.name]: false });
+    setForm({ ...form, [event.target.name]: false });
   };
 
   return (
@@ -116,7 +121,7 @@ function WatchList() {
           </Modal>
         </div>
       </div>
-      <RenderItems />
+      <RenderItems selected={selected} handleRemove={handleRemove} />
     </>
   );
 }

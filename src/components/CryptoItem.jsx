@@ -12,7 +12,6 @@ function CryptoItem(props) {
   const handleShow = (event) => {
     setItemToBuy(event.target.name);
 
-    console.log("itemToBuy", itemToBuy);
     setShow(true);
   };
 
