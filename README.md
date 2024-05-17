@@ -2,7 +2,7 @@
 
 ## Description
 
-This [project](https://jocular-youtiao-8f6012.netlify.app/) mocks a cryptocruncy exchange website and builds a platform using React and various React-based libraries. Within the application, users can navigate through four main pages:
+This [project](https://resplendent-gumption-b3f3fe.netlify.app/) mocks a cryptocruncy exchange website and builds a platform using React and various React-based libraries. Within the application, users can navigate through four main pages:
 
 ### Pages
 
